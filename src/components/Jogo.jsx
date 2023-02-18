@@ -1,6 +1,3 @@
-import React from "react"
-
-
 
 // const arrayForca=[
 //     "/assets/forca0.png",
