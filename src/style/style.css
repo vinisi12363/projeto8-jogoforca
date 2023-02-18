@@ -1,0 +1,94 @@
+body {
+    box-sizing: border-box;
+}
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+
+}
+
+.imgForca {
+    min-width: 40%;
+    margin-top: 59px;
+    margin-left: 38px;
+    background-color: #FFFFFF;
+}
+
+.imgForca img {
+    width: 400px;
+    height: 466.67px;
+}
+
+
+.AreaDeInteracao {
+    min-width: 50%;
+    margin-top: 89px;
+    margin-right: 53px;
+    background-color: #FFFFFF;
+}
+
+.AreaDeInteracao .btnEscolherPalavra {
+    margin-left: 77%;
+    position: relative;
+    width: 200px;
+    height: 60px;
+    border: transparent;
+    background: #27AE60;
+    border-radius: 8px;
+}
+
+.btnLetra {
+    margin-top: 11px;
+    margin-left: 12px;
+    width: 40px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    color: #39739D;
+    background: #E1ECF4;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+}
+
+.areaAlfabeto {
+    display: flex;
+    min-height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+
+}
+
+.AreaBotoesAlfabeto {
+
+    max-width: 50%;
+    height: 100%;
+    background-color: FFFFFF;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.disabled {
+    color:#7a899e;
+    background: #9FAAB5;
+    border: 1px solid #7AA7C7;
+}

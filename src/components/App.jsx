@@ -1,12 +1,14 @@
 import Jogo from "./Jogo"
+import Letras from "./Letras";
+import { useState } from "react"
 
 export default function App(){
+    const [erro, setErro] = useState (0);
     return (
-        <div className="App" >
+        <div className="container" >
             
-            <h1>OLA MUNDO</h1>
-            <Jogo/>
-        
+            <Jogo erro={erro}/>
+            <Letras/>
         </div>
     )
 
