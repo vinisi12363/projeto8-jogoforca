@@ -28,6 +28,8 @@ let alfabeto = [
     { letra: 'Z' },
 ]
 export default function Letras() {
+    const [disabled, setDisabled] = React.useState(true);
+    
     return (
         <>
             <div className="AreaDeInteracao">
@@ -38,7 +40,7 @@ export default function Letras() {
                     {
                         alfabeto.map(a => (
 
-                            <Botoes letra={a.letra} />
+                            <Botoes letra={a.letra} disabled={disabled} setDisabled={setDisabled} />
 
                         ))
 
@@ -56,8 +58,8 @@ function botaoClicado (letra){
     alert(`a letra ${letra} foi clicada!!!`)
 }
 
-function Botoes({letra}) {
-    const [disabled, setDisabled] = React.useState(true);
+function Botoes({letra, disabled ,setDisabled}) {
+   
     return (
         <button className={`btnLetra ${letra} ${!disabled  && "disabled"}`} disabled={!disabled} onClick={()=>botaoClicado(letra)}>{letra}</button>
     )
