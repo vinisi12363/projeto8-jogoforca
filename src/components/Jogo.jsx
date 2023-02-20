@@ -22,22 +22,28 @@ const arrayForca = [
 
 
 
-export default function Jogo({ erro, arrayDePalavras , setGameStart}) {
-    const [palavraEscolhida, setPalavraEscolhida] = useState("")
+export default function Jogo({ erro, setErro, arrayDePalavras , setGameStart, letraClicada , palavraEscolhida , setPalavraEscolhida}) {
+    let arrayPalavraSorteada = []
+    
     function sortearPalavra() {
-
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
-        setPalavraEscolhida(arrayDePalavras[randomIndex]);
+       
+        arrayPalavraSorteada.push(arrayDePalavras[randomIndex].split(''))
+        console.log("teste de Array char: ",arrayPalavraSorteada)
+        setPalavraEscolhida(arrayDePalavras[randomIndex])
         setGameStart(true);
+        
 
     }
-
+    
 
     function getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min);
     }
+    
+
 
     return (
         <>
