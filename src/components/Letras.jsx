@@ -27,20 +27,17 @@ let alfabeto = [
     { letra: 'Y' },
     { letra: 'Z' },
 ]
-export default function Letras() {
+export default function Letras({gameStart}) {
     const [disabled, setDisabled] = React.useState(true);
-    
     return (
         <>
-            <div className="AreaDeInteracao">
-                <button className="btnEscolherPalavra">Escolher Palavra</button>
-            </div>
+        
             <div className="areaAlfabeto">
                 <div className="AreaBotoesAlfabeto">
                     {
                         alfabeto.map(a => (
 
-                            <Botoes letra={a.letra} disabled={disabled} setDisabled={setDisabled} />
+                            <Botoes letra={a.letra} disabled={disabled} setDisabled={setDisabled} gameStart={gameStart} />
 
                         ))
 
@@ -58,10 +55,10 @@ function botaoClicado (letra){
     alert(`a letra ${letra} foi clicada!!!`)
 }
 
-function Botoes({letra, disabled ,setDisabled}) {
-   
+function Botoes({letra, disabled ,setDisabled, gameStart}) {
+    gameStart && setDisabled (false);
     return (
-        <button className={`btnLetra ${letra} ${!disabled  && "disabled"}`} disabled={!disabled} onClick={()=>botaoClicado(letra)}>{letra}</button>
+        <button className={`btnLetra ${letra} ${disabled  && "disabled"}`} disabled={disabled} onClick={()=>botaoClicado(letra)}>{letra}</button>
     )
 
 
