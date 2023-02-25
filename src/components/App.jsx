@@ -9,29 +9,28 @@ export default function App() {
     const [gameStart, setGameStart] = useState(false);
     const [letraClicada, setLetraClicada] = useState("");
     const [disabled, setDisabled] = useState(true);
-    const [palavraEscolhida, setPalavraEscolhida] = useState([])
-    const [vetorDasLetras, setVetorDasLetras] = useState("");
+    const [arrayTracinhos, setArrayTracinhos] = useState([])
+    const [palavraSoletrada, setPalavraSoletrada] = useState("");
 
     return (
         <div className="container" >
 
-            <Jogo key={`${vetorDasLetras}`}
+            <Jogo key={`${palavraSoletrada}`}
                 erro={erro}
                 arrayDePalavras={palavras}
-                setVetorDasLetras={setVetorDasLetras}
-                setPalavraEscolhida={setPalavraEscolhida}
-                palavraEscolhida={palavraEscolhida}
+                setPalavraSoletrada={setPalavraSoletrada}
+                setArrayTracinhos={setArrayTracinhos}
+                arrayTracinhos={arrayTracinhos}
                 setDisabled={setDisabled} />
 
-            <Letras key={`1${palavraEscolhida}`}
-                erro={erro}
+            <Letras key={`1${arrayTracinhos}`}
                 setErro={setErro}
                 gameStart={gameStart}
                 setGameStart={setGameStart}
                 letraClicada={letraClicada}
                 setLetraClicada={setLetraClicada}
-                palavraEscolhida={palavraEscolhida}
-                vetorDasLetras={vetorDasLetras}
+                arrayTracinhos={arrayTracinhos}
+                palavraSoletrada={palavraSoletrada}
                 disabled={disabled}
             />
         </div>

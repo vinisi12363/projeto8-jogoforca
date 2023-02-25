@@ -32,9 +32,11 @@ let cont = 0;
 export default function Letras({
     setErro,
     gameStart,
-    letraClicada, setLetraClicada,
-    palavraEscolhida, setPalavraEscolhida,
-    vetorDasLetras,
+    letraClicada, 
+    setLetraClicada,
+    arrayTracinhos,
+    setArrayTracinhos,
+    palavraSoletrada,
     disabled
 
 }) {
@@ -53,8 +55,8 @@ export default function Letras({
                                 setErro={setErro}
                                 gameStart={gameStart}
                                 letraClicada={letraClicada} setLetraClicada={setLetraClicada}
-                                palavraEscolhida={palavraEscolhida} setPalavraEscolhida={setPalavraEscolhida}
-                                vetorDasLetras={vetorDasLetras}
+                                arrayTracinhos={arrayTracinhos} setArrayTracinhos={setArrayTracinhos}
+                                palavraSoletrada={palavraSoletrada}
                                 disabled={disabled}
 
                             />
@@ -71,22 +73,16 @@ export default function Letras({
     )
 
 }
-function botaoClicado(letra, setErro,
-    letraClicada, setLetraClicada,
-    palavraEscolhida, setPalavraEscolhida,
-    vetorDasLetras) {
-
+function botaoClicado(letra, setErro,letraClicada, setLetraClicada,arrayTracinhos, setArrayTracinhos, palavraSoletrada) {
     setLetraClicada(letra.toLowerCase());
-    console.log(vetorDasLetras)
+    console.log(palavraSoletrada)
     const index = []
     let newArr = []
-    newArr = palavraEscolhida
-    if (vetorDasLetras.includes(letraClicada)) {
+    newArr = arrayTracinhos
+    if (palavraSoletrada.includes(letraClicada)) {
 
-        newArr = vetorDasLetras.filter((letraClicada) => vetorDasLetras === letraClicada);
-
-
-        for (let i = 0; i < palavraEscolhida.length; i++) {
+        newArr = palavraSoletrada.filter((letraClicada) => palavraSoletrada === letraClicada);
+        for (let i = 0; i < arrayTracinhos.length; i++) {
             if (i = index[i]) {
                 newArr[i] = letraClicada;
             }
@@ -94,8 +90,8 @@ function botaoClicado(letra, setErro,
 
         console.log(newArr)
         setLetraClicada("");
-        setPalavraEscolhida([...newArr])
-        console.log(palavraEscolhida)
+        setArrayTracinhos([...newArr])
+        console.log(arrayTracinhos)
 
     } else {
         cont += 1;
@@ -107,7 +103,7 @@ function Botoes({ letra,
     setErro,
     letraClicada, setLetraClicada,
     palavraEscolhida, setPalavraEscolhida,
-    vetorDasLetras,
+    palavraSoletrada,
     disabled }) {
     return (
         <button className={`btnLetra ${letra} ${disabled ? "disabled" : ""}`}
@@ -115,7 +111,7 @@ function Botoes({ letra,
             onClick={() => botaoClicado(letra, setErro,
                 letraClicada, setLetraClicada,
                 palavraEscolhida, setPalavraEscolhida,
-                vetorDasLetras)}>{letra}</button>
+                palavraSoletrada)}>{letra}</button>
     )
 
 

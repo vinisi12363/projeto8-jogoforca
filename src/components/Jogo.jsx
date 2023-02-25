@@ -22,12 +22,12 @@ const arrayForca = [
 ]
 
 
-export default function Jogo({ erro, setVetorDasLetras, arrayDePalavras, setPalavraEscolhida, palavraEscolhida, setDisabled }) {
+export default function Jogo({ erro, setVetorDasLetras: setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled }) {
 
     function sortearPalavra() {
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
-        setVetorDasLetras(arrayDePalavras[randomIndex].split(''))
-        setPalavraEscolhida([...Array(arrayDePalavras[randomIndex].length).fill(" _ ")])
+        setPalavraSoletrada(arrayDePalavras[randomIndex].split(''))
+        setArrayTracinhos([...Array(arrayDePalavras[randomIndex].length).fill(" _ ")])
         setDisabled(false);
 
     }
@@ -41,7 +41,7 @@ export default function Jogo({ erro, setVetorDasLetras, arrayDePalavras, setPala
     return (
         <>
             <div className="imgForca">
-                <img src={arrayForca[erro]} />
+                <img src={erro > 0 ? arrayForca[erro] : arrayForca[0]} />
             </div>
             <div className="AreaDeInteracao">
 
@@ -49,7 +49,7 @@ export default function Jogo({ erro, setVetorDasLetras, arrayDePalavras, setPala
                     <button className="btnEscolherPalavra" onClick={() => sortearPalavra()}>Escolher Palavra</button>
                     <div className="AreaDasLetras">
                         {
-                            palavraEscolhida
+                            arrayTracinhos
                         }
                     </div>
                 </>
