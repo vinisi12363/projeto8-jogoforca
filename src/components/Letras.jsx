@@ -29,19 +29,8 @@ let alfabeto = [
 ]
 let cont = 0;
 
-export default function Letras({
-    setErro,
-    gameStart,
-    letraClicada, 
-    setLetraClicada,
-    arrayTracinhos,
-    setArrayTracinhos,
-    palavraSoletrada,
-    disabled
-
-}) {
-
-
+export default function Letras({setErro, letraClicada, setLetraClicada, arrayTracinhos,setArrayTracinhos,palavraSoletrada,disabled}) {
+    
     return (
         <>
 
@@ -53,7 +42,6 @@ export default function Letras({
                             <Botoes
                                 letra={a.letra}
                                 setErro={setErro}
-                                gameStart={gameStart}
                                 letraClicada={letraClicada} setLetraClicada={setLetraClicada}
                                 arrayTracinhos={arrayTracinhos} setArrayTracinhos={setArrayTracinhos}
                                 palavraSoletrada={palavraSoletrada}
@@ -73,12 +61,40 @@ export default function Letras({
     )
 
 }
-function botaoClicado(letra, setErro,letraClicada, setLetraClicada,arrayTracinhos, setArrayTracinhos, palavraSoletrada) {
+
+function Botoes({ letra,
+    setErro,
+    letraClicada, setLetraClicada,
+    arrayTracinhos, setArrayTracinhos,
+    palavraSoletrada,
+    disabled }) {
+    return (
+        <button className={`btnLetra ${letra} ${disabled ? "disabled" : ""}`}
+            disabled={disabled}
+            onClick={() => botaoClicado(
+                letra, setErro,letraClicada, setLetraClicada,
+                arrayTracinhos, setArrayTracinhos,palavraSoletrada
+            )}>{letra}</button>
+    )
+
+
+}
+
+
+function botaoClicado(letra, setErro, letraClicada, setLetraClicada, arrayTracinhos, setArrayTracinhos, palavraSoletrada) {
     setLetraClicada(letra.toLowerCase());
-    console.log(palavraSoletrada)
+    console.log("palavra Soletrada,", palavraSoletrada)
     const index = []
     let newArr = []
     newArr = arrayTracinhos
+   
+    palavraSoletrada.forEach((elemento, index) =>
+        
+        console.log('array[ ' + index + ' ] = ' + elemento)
+
+    );
+    
+
     if (palavraSoletrada.includes(letraClicada)) {
 
         newArr = palavraSoletrada.filter((letraClicada) => palavraSoletrada === letraClicada);
@@ -97,22 +113,4 @@ function botaoClicado(letra, setErro,letraClicada, setLetraClicada,arrayTracinho
         cont += 1;
         setErro(cont)
     }
-}
-
-function Botoes({ letra,
-    setErro,
-    letraClicada, setLetraClicada,
-    palavraEscolhida, setPalavraEscolhida,
-    palavraSoletrada,
-    disabled }) {
-    return (
-        <button className={`btnLetra ${letra} ${disabled ? "disabled" : ""}`}
-            disabled={disabled}
-            onClick={() => botaoClicado(letra, setErro,
-                letraClicada, setLetraClicada,
-                palavraEscolhida, setPalavraEscolhida,
-                palavraSoletrada)}>{letra}</button>
-    )
-
-
 }

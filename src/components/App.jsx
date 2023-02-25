@@ -6,7 +6,6 @@ import palavras from "./palavras.js"
 
 export default function App() {
     const [erro, setErro] = useState(0);
-    const [gameStart, setGameStart] = useState(false);
     const [letraClicada, setLetraClicada] = useState("");
     const [disabled, setDisabled] = useState(true);
     const [arrayTracinhos, setArrayTracinhos] = useState([])
@@ -25,8 +24,6 @@ export default function App() {
 
             <Letras key={`1${arrayTracinhos}`}
                 setErro={setErro}
-                gameStart={gameStart}
-                setGameStart={setGameStart}
                 letraClicada={letraClicada}
                 setLetraClicada={setLetraClicada}
                 arrayTracinhos={arrayTracinhos}
