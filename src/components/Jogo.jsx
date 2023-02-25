@@ -22,15 +22,14 @@ const arrayForca = [
 ]
 
 
+export default function Jogo({ erro, setVetorDasLetras, arrayDePalavras, setPalavraEscolhida, palavraEscolhida, setDisabled }) {
 
-export default function Jogo({ erro, setErro, arrayDePalavras, gameStart ,setGameStart, letraClicada, palavraEscolhida, setPalavraEscolhida, vetorDasLetras, setVetorDasLetras }) {
-    
     function sortearPalavra() {
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
         setVetorDasLetras(arrayDePalavras[randomIndex].split(''))
         setPalavraEscolhida([...Array(arrayDePalavras[randomIndex].length).fill(" _ ")])
-        setGameStart(true);
-        
+        setDisabled(false);
+
     }
 
     function getRandomInt(min, max) {
@@ -39,38 +38,6 @@ export default function Jogo({ erro, setErro, arrayDePalavras, gameStart ,setGam
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    function iniciarJogo(){
-        if(letraClicada!==""){
-            verificarLetras()
-        }
-
-    }
-
-    function verificarLetras() {
-        alert(vetorDasLetras);
-        const index = []
-        let newArr = []
-        newArr = palavraEscolhida
-        if (vetorDasLetras.includes(letraClicada)) {
-           
-            for (let i = 0; i < vetorDasLetras.length; i++) {
-                if (vetorDasLetras[i] === letraClicada) {
-                    index.push(i);
-                }
-            }
-            for (let i = 0; i < palavraEscolhida.length; i++) {
-                if (i = index[i]) {
-                   newArr[i].push(letraClicada);
-                }
-            }
-        }
-        alert(newArr)
-        setPalavraEscolhida ([...newArr])
-    }
-
-
-    if (gameStart) iniciarJogo()
- 
     return (
         <>
             <div className="imgForca">

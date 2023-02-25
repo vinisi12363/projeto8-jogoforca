@@ -27,17 +27,37 @@ let alfabeto = [
     { letra: 'Y' },
     { letra: 'Z' },
 ]
-export default function Letras({gameStart, setLetraClicada ,disabled, setDisabled}) {
-   
+let cont = 0;
+
+export default function Letras({
+    setErro,
+    gameStart,
+    letraClicada, setLetraClicada,
+    palavraEscolhida, setPalavraEscolhida,
+    vetorDasLetras,
+    disabled
+
+}) {
+
+
     return (
         <>
-        
+
             <div className="areaAlfabeto">
                 <div className="AreaBotoesAlfabeto">
                     {
                         alfabeto.map(a => (
 
-                            <Botoes  letra={a.letra} disabled={disabled} setDisabled={setDisabled} gameStart={gameStart} setLetraClicada={setLetraClicada} />
+                            <Botoes
+                                letra={a.letra}
+                                setErro={setErro}
+                                gameStart={gameStart}
+                                letraClicada={letraClicada} setLetraClicada={setLetraClicada}
+                                palavraEscolhida={palavraEscolhida} setPalavraEscolhida={setPalavraEscolhida}
+                                vetorDasLetras={vetorDasLetras}
+                                disabled={disabled}
+
+                            />
 
                         ))
 
@@ -51,14 +71,51 @@ export default function Letras({gameStart, setLetraClicada ,disabled, setDisable
     )
 
 }
-function botaoClicado (letra, setLetraClicada){
+function botaoClicado(letra, setErro,
+    letraClicada, setLetraClicada,
+    palavraEscolhida, setPalavraEscolhida,
+    vetorDasLetras) {
+
     setLetraClicada(letra.toLowerCase());
+    console.log(vetorDasLetras)
+    const index = []
+    let newArr = []
+    newArr = palavraEscolhida
+    if (vetorDasLetras.includes(letraClicada)) {
+
+        newArr = vetorDasLetras.filter((letraClicada) => vetorDasLetras === letraClicada);
+
+
+        for (let i = 0; i < palavraEscolhida.length; i++) {
+            if (i = index[i]) {
+                newArr[i] = letraClicada;
+            }
+        }
+
+        console.log(newArr)
+        setLetraClicada("");
+        setPalavraEscolhida([...newArr])
+        console.log(palavraEscolhida)
+
+    } else {
+        cont += 1;
+        setErro(cont)
+    }
 }
 
-function Botoes({letra, disabled ,setDisabled, gameStart, setLetraClicada}) {
-    gameStart && setDisabled (false);
+function Botoes({ letra,
+    setErro,
+    letraClicada, setLetraClicada,
+    palavraEscolhida, setPalavraEscolhida,
+    vetorDasLetras,
+    disabled }) {
     return (
-        <button className={`btnLetra ${letra} ${disabled  && "disabled"}`} disabled={disabled} onClick={()=>botaoClicado(letra, setLetraClicada)}>{letra}</button>
+        <button className={`btnLetra ${letra} ${disabled ? "disabled" : ""}`}
+            disabled={disabled}
+            onClick={() => botaoClicado(letra, setErro,
+                letraClicada, setLetraClicada,
+                palavraEscolhida, setPalavraEscolhida,
+                vetorDasLetras)}>{letra}</button>
     )
 
 
