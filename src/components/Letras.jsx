@@ -37,7 +37,7 @@ export default function Letras({gameStart, setLetraClicada ,disabled, setDisable
                     {
                         alfabeto.map(a => (
 
-                            <Botoes letra={a.letra} disabled={disabled} setDisabled={setDisabled} gameStart={gameStart} setLetraClicada={setLetraClicada} />
+                            <Botoes  letra={a.letra} disabled={disabled} setDisabled={setDisabled} gameStart={gameStart} setLetraClicada={setLetraClicada} />
 
                         ))
 
