@@ -24,7 +24,7 @@ export default function App() {
                 acertos={acertos}
                 setAcertos={setAcertos}
                 disabled={disabled}
-                setDisabled={setDisable}
+                setDisabled={setDisabled}
                 arrayDePalavras={palavras}
                 palavraSoletrada={palavraSoletrada}
                 setPalavraSoletrada={setPalavraSoletrada}
