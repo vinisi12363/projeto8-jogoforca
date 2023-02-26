@@ -31,7 +31,7 @@ let cont = 0;
 
 
 
-export default function Letras({ setErro, setArrayTracinhos, arrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton ,arrayClicadas ,setArrayClicadas}) {
+export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton ,arrayClicadas ,setArrayClicadas}) {
 
     return (
         <>
@@ -43,6 +43,7 @@ export default function Letras({ setErro, setArrayTracinhos, arrayTracinhos, pal
 
                             <Botoes
                                 letra={a.letra}
+                                erro={erro}
                                 setErro={setErro}
                                 arrayTracinhos={arrayTracinhos} setArrayTracinhos={setArrayTracinhos}
                                 palavraSoletrada={palavraSoletrada}
@@ -69,12 +70,20 @@ export default function Letras({ setErro, setArrayTracinhos, arrayTracinhos, pal
 
 }
 
-function Botoes({ letra, setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, setAcertos, arrayClicadas , setArrayClicadas }) {
-
+function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu }) {
+    function gameOver(){
+        if (arrayTracinhos === palavraSoletrada){
+            setGanhou(true)
+        }if(erro>5){
+            setPerdeu(true)
+        }
+    }
 
     function botaoClicado(l) {
         let contAcertos = 0;
-        
+        if (arrayTracinhos === palavraSoletrada || erro>5){
+            gameOver();
+        }   
 
         palavraSoletrada.forEach((elemento, index) =>
 
