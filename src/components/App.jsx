@@ -11,6 +11,10 @@ export default function App() {
     const [arrayTracinhos, setArrayTracinhos] = useState("")
     const [palavraSoletrada, setPalavraSoletrada] = useState("");
     const [acertos, setAcertos] = useState (0)
+    const [ganhou , setGanhou] = useState("verde")
+    const [perdeu , setPerdeu] = useState ("vermelho")
+    const [disableButton , setDisableButton] = useState (false)
+    const [arrayClicadas , setArrayClicadas] = useState ([])
     return (
         <div className="container" >
 
@@ -20,7 +24,9 @@ export default function App() {
                 setPalavraSoletrada={setPalavraSoletrada}
                 setArrayTracinhos={setArrayTracinhos}
                 arrayTracinhos={arrayTracinhos}
-                setDisabled={setDisabled} />
+                setDisabled={setDisabled}
+                arrayClicadas={arrayClicadas}
+                setArrayClicadas ={setArrayClicadas} />
 
             <Letras key={`1${acertos}`}
                 setErro={setErro}
@@ -32,6 +38,10 @@ export default function App() {
                 disabled={disabled}
                 setAcertos={setAcertos}
                 acertos={acertos}
+                disableButton={disableButton}
+                setDisableButton={setDisableButton}
+                arrayClicadas={arrayClicadas}
+                setArrayClicadas={setArrayClicadas}
             />
         </div>
     )

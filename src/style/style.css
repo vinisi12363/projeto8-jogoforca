@@ -90,6 +90,15 @@ body {
     border-radius: 3px;
 }
 
+.areaBotoesAlfabeto>.btnLetra:disabled {
+    color: #7a899e;
+    background: #9FAAB5;
+    border: 1px solid #7AA7C7;
+}
+.areaBotoesAlfabeto>.btnLetra:focus {
+    opacity: 0.5;
+}
+
 .areaAlfabeto {
     display: flex;
     max-height: 100px;
@@ -99,7 +108,7 @@ body {
 
 }
 
-.AreaBotoesAlfabeto {
+.areaBotoesAlfabeto {
 
     max-width: 70%;
     height: 100%;
@@ -110,9 +119,5 @@ body {
     justify-content: space-between;
 }
 
-.disabled {
-    color: #7a899e;
-    background: #9FAAB5;
-    border: 1px solid #7AA7C7;
-}
+
 
