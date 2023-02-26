@@ -1,5 +1,3 @@
-import { toHaveAccessibleDescription } from "@testing-library/jest-dom/dist/matchers"
-import { useState } from "react"
 import forca0 from "../assets/forca0.png"
 import forca1 from "../assets/forca1.png"
 import forca2 from "../assets/forca2.png"
@@ -42,13 +40,13 @@ export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setAr
     return (
         <>
             <div className="imgForca">
-                <img src={erro > 0 ? arrayForca[erro] : arrayForca[0]} />
+                <img src={erro > 0 ? arrayForca[erro] : arrayForca[0]}  data-test="game-image"/>
             </div>
             <div className="AreaDeInteracao">
 
                 <>
-                    <button className="btnEscolherPalavra" onClick={() => sortearPalavra()}>Escolher Palavra</button>
-                    <div className="AreaDasLetras">
+                    <button className="btnEscolherPalavra" onClick={() => sortearPalavra()} data-test="choose-word">Escolher Palavra</button>
+                    <div className="AreaDasLetras"  data-test="word">
                         {
                             arrayTracinhos
                         }

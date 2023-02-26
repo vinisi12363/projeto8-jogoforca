@@ -6,7 +6,6 @@ import palavras from "./palavras.js"
 
 export default function App() {
     const [erro, setErro] = useState(0);
-    const [letraClicada, setLetraClicada] = useState("");
     const [disabled, setDisabled] = useState(true);
     const [arrayTracinhos, setArrayTracinhos] = useState("")
     const [palavraSoletrada, setPalavraSoletrada] = useState("");
@@ -30,8 +29,6 @@ export default function App() {
 
             <Letras key={`1${acertos}`}
                 setErro={setErro}
-                letraClicada={letraClicada}
-                setLetraClicada={setLetraClicada}
                 setArrayTracinhos={setArrayTracinhos}
                 arrayTracinhos={arrayTracinhos}
                 palavraSoletrada={palavraSoletrada}

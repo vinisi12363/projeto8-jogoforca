@@ -31,7 +31,7 @@ let cont = 0;
 
 
 
-export default function Letras({ setErro, letraClicada, setLetraClicada, setArrayTracinhos, arrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton ,arrayClicadas ,setArrayClicadas}) {
+export default function Letras({ setErro, setArrayTracinhos, arrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton ,arrayClicadas ,setArrayClicadas}) {
 
     return (
         <>
@@ -44,7 +44,6 @@ export default function Letras({ setErro, letraClicada, setLetraClicada, setArra
                             <Botoes
                                 letra={a.letra}
                                 setErro={setErro}
-                                setLetraClicada={setLetraClicada}
                                 arrayTracinhos={arrayTracinhos} setArrayTracinhos={setArrayTracinhos}
                                 palavraSoletrada={palavraSoletrada}
                                 disabled={disabled}
@@ -70,12 +69,12 @@ export default function Letras({ setErro, letraClicada, setLetraClicada, setArra
 
 }
 
-function Botoes({ letra, setErro, setLetraClicada, arrayTracinhos, setArrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton, arrayClicadas , setArrayClicadas }) {
+function Botoes({ letra, setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, setAcertos, arrayClicadas , setArrayClicadas }) {
 
 
     function botaoClicado(l) {
         let contAcertos = 0;
-        setLetraClicada(l.toLowerCase());
+        
 
         palavraSoletrada.forEach((elemento, index) =>
 
