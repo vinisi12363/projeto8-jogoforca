@@ -115,9 +115,9 @@ function Botoes({ letra, erro, setErro, arrayTracinhos, setArrayTracinhos, setPa
             arrayClicadas = []
             setArrayClicadas(arrayClicadas)
         }
-        if (erro >= 5) {
-            setErro(erro += 1)
-            console.log(erro)
+        console.log("errovale ",erro)
+        if (erro == 6) {
+            setErro(erro)
             setPerdeu(true)
             arrayClicadas = []
             setArrayClicadas(arrayClicadas)
