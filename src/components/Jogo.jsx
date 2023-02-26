@@ -24,8 +24,8 @@ export default function Jogo({ erro,setErro,acertos,setAcertos,disabled,setDisab
 }) {
     function resetGame() {
         
-        if ((erro >= 5 || perdeu) || (ganhou && gameOver)) {
-            console.log("resetando variaveis")
+      
+           
             setErro(0)
             setAcertos(0)
             setDisabled(true)
@@ -37,9 +37,9 @@ export default function Jogo({ erro,setErro,acertos,setAcertos,disabled,setDisab
             arrayClicadas = []
             setArrayClicadas(arrayClicadas)
             setGameOver(false)
-            
-            console.log(" erro", erro + "acertos", acertos + "palavra soletrada", palavraSoletrada)
-        }
+            sortearPalavra();
+           
+        
     }
     function sortearPalavra() {
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
@@ -65,7 +65,7 @@ export default function Jogo({ erro,setErro,acertos,setAcertos,disabled,setDisab
             <div className="areaDeInteracao">
 
                 <>
-                    <button className="btnEscolherPalavra" onClick={() => {sortearPalavra(); gameOver && resetGame()}} data-test="choose-word">Escolher Palavra</button>
+                    <button className="btnEscolherPalavra" onClick={() => {sortearPalavra() ; (gameOver ||erro>=5 || ganhou || palavraSoletrada.length>0 )&&resetGame()}} data-test="choose-word">Escolher Palavra</button>
 
                     <div className={`areaDasLetras ${(ganhou || acertos === palavraSoletrada.length) ? "verde" : ""} ${perdeu ? "vermelho" : ""}`} data-test="word">
                         {
