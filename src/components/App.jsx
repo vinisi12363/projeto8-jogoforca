@@ -39,6 +39,7 @@ export default function App() {
                 setErro={setErro}
                 setArrayTracinhos={setArrayTracinhos}
                 arrayTracinhos={arrayTracinhos}
+                setPalavraSoletrada={setPalavraSoletrada}
                 palavraSoletrada={palavraSoletrada}
                 disabled={disabled}
                 setAcertos={setAcertos}
@@ -51,6 +52,7 @@ export default function App() {
                 setPerdeu={setPerdeu}
                 gameOver={gameOver}
                 setGameOver={setGameOver}
+                setDisabled={setDisabled}
                                 
                 />
         </div>

@@ -74,24 +74,20 @@ export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos
 
 }
 
-function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, acertos ,setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu, gameOver,setGameOver }) {
+function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, setPalavraSoletrada,palavraSoletrada, acertos ,setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu, gameOver,setGameOver,setDisableButton,setDisabled }) {
     
-    function endGame(){
-
-        if ( acertos+1 === palavraSoletrada.length || palavraSoletrada === arrayTracinhos){
-            setAcertos(acertos+=1)
-            console.log("entrou no gameOver")
-            let arrayVazio = []
-            setGanhou(true)
-            setGameOver(true)
-            setArrayClicadas([...arrayVazio ,arrayVazio])
-        }if(erro>=5){
-            setErro(erro+=1)
-            setPerdeu(true)
-            setGameOver(true)
-            arrayClicadas=[]
-            setArrayClicadas=(arrayClicadas)
-        }
+    function resetGame(){
+        setErro(0)
+        setAcertos(0)
+        setDisabled(true)
+        setArrayTracinhos("")
+        setPalavraSoletrada("");
+        setGanhou(false)
+        setPerdeu(false)
+        setDisableButton(false)
+        arrayClicadas = []
+        setArrayClicadas(arrayClicadas)
+        setGameOver(false)  
     }
 
    
@@ -122,10 +118,9 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
             cont += 1;
             setErro(cont)
         }
-        console.log ("acertos antes do if :",acertos)
+        
         if ( acertos == arrayTracinhos.length || palavraSoletrada === arrayTracinhos){
             setAcertos(acertos+=1)
-            console.log("entrou no gameOver")
             setGanhou(true)
             setGameOver(true)
             arrayClicadas = []
@@ -138,12 +133,14 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
             arrayClicadas = []
             setArrayClicadas(arrayClicadas)
             setGameOver(true);
-            console.log("Array clicadas: ",arrayClicadas +"tamanho:",arrayClicadas.length)
+            arrayTracinhos = palavraSoletrada;
+            setArrayTracinhos(arrayClicadas);
+            resetGame() 
           
         }
         setArrayTracinhos(arrayTracinhos)
         
-        //endGame()        
+               
     }
 
     
