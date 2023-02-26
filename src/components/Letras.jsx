@@ -105,8 +105,7 @@ function Botoes({ letra, erro, setErro, arrayTracinhos, setArrayTracinhos, setPa
 
 
         } else {
-            cont += 1;
-            setErro(cont)
+            setErro(erro+=1)
         }
 
         if (acertos == arrayTracinhos.length || palavraSoletrada === arrayTracinhos) {
