@@ -14,6 +14,7 @@ export default function App() {
     const [perdeu, setPerdeu] = useState(false)
     const [disableButton, setDisableButton] = useState(false)
     const [arrayClicadas, setArrayClicadas] = useState([])
+    const [gameOver, setGameOver] = useState(false)
     return (
         <div className="container" >
 
@@ -47,7 +48,10 @@ export default function App() {
                 setArrayClicadas={setArrayClicadas}
                 setGanhou= {setGanhou}
                 setPerdeu={setPerdeu}
-            />
+                gameOver={gameOver}
+                setGameOver={setGameOver}
+                                
+                />
         </div>
     )
 

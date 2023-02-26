@@ -41,7 +41,7 @@ export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setAr
     return (
         <>
             <div className="imgForca">
-                <img src={erro > 0 ? arrayForca[erro] : arrayForca[0]}  data-test="game-image"/>
+                <img src={(erro < 6) ? arrayForca[erro] : arrayForca[6]}  data-test="game-image"/>
             </div>
             <div className="areaDeInteracao">
 
