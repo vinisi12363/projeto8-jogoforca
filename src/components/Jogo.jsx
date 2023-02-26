@@ -20,14 +20,13 @@ const arrayForca = [
 ]
 
 
-export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled, arrayClicadas,setArrayClicadas, ganhou, perdeu, setGanhou}) {
+export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled, arrayClicadas,setArrayClicadas, ganhou, perdeu, setGanhou, setPerdeu, palavraSoletrada}) {
 
     function sortearPalavra() {
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
         setPalavraSoletrada(arrayDePalavras[randomIndex].split(''))
         setArrayTracinhos([...Array(arrayDePalavras[randomIndex].length).fill(" _ ")])
         setDisabled(false);
-        setGanhou(true);
         setArrayClicadas (...arrayClicadas, "1")
         
     }
@@ -37,6 +36,7 @@ export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setAr
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min);
     }
+   
 
     return (
         <>

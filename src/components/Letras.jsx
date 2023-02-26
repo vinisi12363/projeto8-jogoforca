@@ -31,7 +31,7 @@ let cont = 0;
 
 
 
-export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton ,arrayClicadas ,setArrayClicadas}) {
+export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos, palavraSoletrada, disabled, setAcertos, acertos, disableButton, setDisableButton ,arrayClicadas ,setArrayClicadas,setGanhou,setPerdeu}) {
 
     return (
         <>
@@ -54,6 +54,8 @@ export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos
                                 setDisableButton={setDisableButton}
                                 arrayClicadas={arrayClicadas}
                                 setArrayClicadas={setArrayClicadas}
+                                setGanhou={setGanhou}
+                                setPerdeu={setPerdeu}
 
                             />
 
@@ -72,8 +74,8 @@ export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos
 
 function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu }) {
     function gameOver(){
-        debugger
-        if (arrayClicadas.length>0 && arrayTracinhos === palavraSoletrada){
+        if ( arrayTracinhos === palavraSoletrada){
+            console.log("entrou no gameOver")
             let arrayVazio = []
             setGanhou(true)
             setArrayClicadas([...arrayVazio ,arrayVazio])
@@ -81,13 +83,14 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
             setPerdeu(true)
         }
     }
-
- 
-
     if (arrayClicadas.length>0 && (arrayTracinhos === palavraSoletrada || erro>5)){
-        alert("entrou no gameOver")
+
+        console.log("array de tracos:",arrayTracinhos + "palavra soletrada: ",palavraSoletrada)
         gameOver();
     }  
+ 
+
+   
 
     function botaoClicado(l) {
         let contAcertos = 0;
@@ -118,7 +121,11 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
         }
         setAcertos(contAcertos);
         setArrayTracinhos(arrayTracinhos)
-        console.log(arrayTracinhos)
+        // if (arrayTracinhos === palavraSoletrada || erro>5){
+
+        //     console.log("array de tracos:",arrayTracinhos + "palavra soletrada: ",palavraSoletrada)
+        //     gameOver();
+        // }         
     }
     function desabilitarBtn(letra) {
         setArrayClicadas([...arrayClicadas, letra])

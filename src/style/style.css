@@ -40,14 +40,14 @@ body {
 }
 
 
-.AreaDeInteracao {
+.areaDeInteracao {
     min-width: 50%;
     margin-top: 89px;
     margin-right: 53px;
   
 }
 
-.AreaDeInteracao .btnEscolherPalavra {
+.areaDeInteracao .btnEscolherPalavra {
     margin-left: 60%;
     position: relative;
     width: 200px;
