@@ -20,19 +20,28 @@ export default function App() {
 
             <Jogo key={`${palavraSoletrada}`}
                 erro={erro}
+                setErro={setErro}
+                acertos={acertos}
+                setAcertos={setAcertos}
+                disabled={disabled}
+                setDisabled={setDisable}
                 arrayDePalavras={palavras}
+                palavraSoletrada={palavraSoletrada}
                 setPalavraSoletrada={setPalavraSoletrada}
                 setArrayTracinhos={setArrayTracinhos}
                 arrayTracinhos={arrayTracinhos}
-                setDisabled={setDisabled}
                 arrayClicadas={arrayClicadas}
                 setArrayClicadas={setArrayClicadas}
                 ganhou={ganhou}
                 perdeu={perdeu}
                 setGanhou={setGanhou} 
                 setPerdeu={setPerdeu}
-                palavraSoletrada={palavraSoletrada}
-                acertos={acertos}/>
+                disableButton={disableButton}
+                setDisableButton={setDisableButton}
+                gameOver={gameOver}
+                setGameOver={setGameOver}
+                
+              />
 
             <Letras key={`1${acertos}`}
                 erro={erro}
