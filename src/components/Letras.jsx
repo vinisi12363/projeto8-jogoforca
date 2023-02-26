@@ -74,17 +74,19 @@ export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos
 
 }
 
-function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu, gameOver,setGameOver }) {
+function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, acertos ,setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu, gameOver,setGameOver }) {
     
     function endGame(){
 
-        if ( arrayTracinhos === palavraSoletrada){
+        if ( acertos+1 === palavraSoletrada.length || palavraSoletrada === arrayTracinhos){
+            setAcertos(acertos+=1)
             console.log("entrou no gameOver")
             let arrayVazio = []
             setGanhou(true)
             setGameOver(true)
             setArrayClicadas([...arrayVazio ,arrayVazio])
-        }if(erro>5){
+        }if(erro>=5){
+            setErro(erro+=1)
             setPerdeu(true)
             setGameOver(true)
             arrayClicadas=[]
@@ -133,6 +135,7 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
         }
         setAcertos(contAcertos);
         setArrayTracinhos(arrayTracinhos)
+        if(acertos+1 === palavraSoletrada.length)
         endGame()        
     }
 
