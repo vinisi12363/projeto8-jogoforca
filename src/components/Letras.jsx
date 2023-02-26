@@ -97,7 +97,6 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
    
 
     function botaoClicado(l) {
-        let contAcertos = 0;
             
        
 
@@ -112,7 +111,7 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
             for (let i = 0; i < palavraSoletrada.length; i++) {
                 if (palavraSoletrada[i] === l.toLowerCase()) {
                     arrayTracinhos.slice(arrayTracinhos[i] = l.toLowerCase())
-                    contAcertos++;
+                    setAcertos(acertos+=1)
 
                 }
             }
@@ -122,6 +121,15 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
         } else {
             cont += 1;
             setErro(cont)
+        }
+        console.log ("acertos antes do if :",acertos)
+        if ( acertos == arrayTracinhos.length || palavraSoletrada === arrayTracinhos){
+            setAcertos(acertos+=1)
+            console.log("entrou no gameOver")
+            setGanhou(true)
+            setGameOver(true)
+            arrayClicadas = []
+            setArrayClicadas(arrayClicadas)
         }
         if (erro >= 5){
             setErro(erro+=1)
@@ -133,16 +141,14 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, pala
             console.log("Array clicadas: ",arrayClicadas +"tamanho:",arrayClicadas.length)
           
         }
-        setAcertos(contAcertos);
         setArrayTracinhos(arrayTracinhos)
-        if(acertos+1 === palavraSoletrada.length)
-        endGame()        
+        
+        //endGame()        
     }
 
     
     function desabilitarBtn(letra) {
         setArrayClicadas([...arrayClicadas, letra])
-        console.log(arrayClicadas);
     }
 
     return (

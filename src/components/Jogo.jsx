@@ -20,7 +20,7 @@ const arrayForca = [
 ]
 
 
-export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled, arrayClicadas,setArrayClicadas, ganhou, perdeu, setGanhou, setPerdeu, palavraSoletrada}) {
+export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled, arrayClicadas,setArrayClicadas, ganhou, perdeu, setGanhou, setPerdeu, palavraSoletrada, acertos}) {
 
     function sortearPalavra() {
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
@@ -48,7 +48,7 @@ export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setAr
                 <>
                     <button className="btnEscolherPalavra" onClick={() => sortearPalavra()} data-test="choose-word">Escolher Palavra</button>
                    
-                    <div className={`areaDasLetras ${ganhou?"verde":""} ${perdeu? "vermelho":""}`}  data-test="word">
+                    <div className={`areaDasLetras ${(ganhou||acertos === palavraSoletrada.length)?"verde":""} ${perdeu? "vermelho":""}`}  data-test="word">
                         {
                             arrayTracinhos
                         }

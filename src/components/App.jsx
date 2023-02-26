@@ -31,7 +31,8 @@ export default function App() {
                 perdeu={perdeu}
                 setGanhou={setGanhou} 
                 setPerdeu={setPerdeu}
-                palavraSoletrada={palavraSoletrada}/>
+                palavraSoletrada={palavraSoletrada}
+                acertos={acertos}/>
 
             <Letras key={`1${acertos}`}
                 erro={erro}
