@@ -77,6 +77,7 @@ export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos
 function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, setPalavraSoletrada,palavraSoletrada, acertos ,setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu, gameOver,setGameOver,setDisableButton,setDisabled }) {
     
     function resetGame(){
+        console.log("resetando variaveis")
         setErro(0)
         setAcertos(0)
         setDisabled(true)
@@ -87,7 +88,9 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, setP
         setDisableButton(false)
         arrayClicadas = []
         setArrayClicadas(arrayClicadas)
-        setGameOver(false)  
+        setGameOver(false) 
+       // window.location.reload(true) 
+       console.log (" erro",erro+"acertos",acertos+"palavra soletrada",palavraSoletrada)
     }
 
    
@@ -134,10 +137,15 @@ function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, setP
             setArrayClicadas(arrayClicadas)
             setGameOver(true);
             arrayTracinhos = palavraSoletrada;
-            setArrayTracinhos(arrayClicadas);
-            resetGame() 
-          
+            setArrayTracinhos(arrayTracinhos);
+           
         }
+        console.log('gameOver:',gameOver)
+        if(gameOver){
+
+            resetGame() 
+        }
+
         setArrayTracinhos(arrayTracinhos)
         
                
