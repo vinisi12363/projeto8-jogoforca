@@ -20,13 +20,14 @@ const arrayForca = [
 ]
 
 
-export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled, arrayClicadas,setArrayClicadas, ganhou, perdeu}) {
+export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setArrayTracinhos, arrayTracinhos, setDisabled, arrayClicadas,setArrayClicadas, ganhou, perdeu, setGanhou}) {
 
     function sortearPalavra() {
         const randomIndex = getRandomInt(0, arrayDePalavras.length - 1)
         setPalavraSoletrada(arrayDePalavras[randomIndex].split(''))
         setArrayTracinhos([...Array(arrayDePalavras[randomIndex].length).fill(" _ ")])
         setDisabled(false);
+        setGanhou(true);
         setArrayClicadas (...arrayClicadas, "1")
         
     }
@@ -42,11 +43,12 @@ export default function Jogo({ erro, setPalavraSoletrada, arrayDePalavras, setAr
             <div className="imgForca">
                 <img src={erro > 0 ? arrayForca[erro] : arrayForca[0]}  data-test="game-image"/>
             </div>
-            <div className="AreaDeInteracao">
+            <div className="areaDeInteracao">
 
                 <>
                     <button className="btnEscolherPalavra" onClick={() => sortearPalavra()} data-test="choose-word">Escolher Palavra</button>
-                    <div className={`AreaDasLetras ${ganhou?"verde":""} ${perdeu? "vermelho":""}`}  data-test="word">
+                   
+                    <div className={`areaDasLetras ${ganhou?"verde":""} ${perdeu? "vermelho":""}`}  data-test="word">
                         {
                             arrayTracinhos
                         }

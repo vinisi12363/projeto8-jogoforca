@@ -27,7 +27,8 @@ export default function App() {
                 arrayClicadas={arrayClicadas}
                 setArrayClicadas={setArrayClicadas}
                 ganhou={ganhou}
-                perdeu={perdeu} />
+                perdeu={perdeu}
+                setGanhou={setGanhou} />
 
             <Letras key={`1${acertos}`}
                 erro={erro}

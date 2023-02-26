@@ -72,18 +72,27 @@ export default function Letras({ erro,setErro, setArrayTracinhos, arrayTracinhos
 
 function Botoes({ letra, erro , setErro, arrayTracinhos, setArrayTracinhos, palavraSoletrada, setAcertos, arrayClicadas , setArrayClicadas,setGanhou,setPerdeu }) {
     function gameOver(){
-        if (arrayTracinhos === palavraSoletrada){
+        debugger
+        if (arrayClicadas.length>0 && arrayTracinhos === palavraSoletrada){
+            let arrayVazio = []
             setGanhou(true)
+            setArrayClicadas([...arrayVazio ,arrayVazio])
         }if(erro>5){
             setPerdeu(true)
         }
     }
 
+ 
+
+    if (arrayClicadas.length>0 && (arrayTracinhos === palavraSoletrada || erro>5)){
+        alert("entrou no gameOver")
+        gameOver();
+    }  
+
     function botaoClicado(l) {
         let contAcertos = 0;
-        if (arrayTracinhos === palavraSoletrada || erro>5){
-            gameOver();
-        }   
+            
+       
 
         palavraSoletrada.forEach((elemento, index) =>
 
