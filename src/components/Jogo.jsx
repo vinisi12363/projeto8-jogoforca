@@ -24,7 +24,7 @@ export default function Jogo({ erro,setErro,acertos,setAcertos,disabled,setDisab
 }) {
     function resetGame() {
         
-        if ((erro >= 5 || perdeu) || (palavraSoletrada===arrayTracinhos && ganhou)) {
+        if ((erro >= 5 || perdeu) || (ganhou && gameOver)) {
             console.log("resetando variaveis")
             setErro(0)
             setAcertos(0)
@@ -37,7 +37,7 @@ export default function Jogo({ erro,setErro,acertos,setAcertos,disabled,setDisab
             arrayClicadas = []
             setArrayClicadas(arrayClicadas)
             setGameOver(false)
-            // window.location.reload(true) 
+            
             console.log(" erro", erro + "acertos", acertos + "palavra soletrada", palavraSoletrada)
         }
     }
